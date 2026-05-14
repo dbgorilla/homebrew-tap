@@ -11,7 +11,7 @@ class Dbgorilla < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.1.0/dbgorilla-darwin-amd64"
-      sha256 "170399b4703e91a436a83c1ba5cd98421702cb689b02cc30ccf118d722869b51"
+      sha256 "955d2530e5ddf7ac462e435b05d6305c65c6568cf893506b673d346c83d51768"
 
       define_method(:install) do
         bin.install Dir["dbgorilla-*"].first => "dbgorilla"
@@ -19,7 +19,7 @@ class Dbgorilla < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.1.0/dbgorilla-darwin-arm64"
-      sha256 "9056c4b1758aff2b46a8bb14bf81b3c3eb7f87a5fdf38cf875435380b6e99afd"
+      sha256 "279fa226bf419f9e9db2d231e5702ac5d4ac4c32e98308cc9c492be6a5eef6bb"
 
       define_method(:install) do
         bin.install Dir["dbgorilla-*"].first => "dbgorilla"
@@ -30,14 +30,14 @@ class Dbgorilla < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.1.0/dbgorilla-linux-amd64"
-      sha256 "5006cf6a6150598893f9431c26a5d036a446d9bf655edadb0d2a004594ac8d30"
+      sha256 "28ffea15c89a6a66fddae1d809becc3a806b215e5e21a6527e4ae0f3ec742a1d"
       define_method(:install) do
         bin.install Dir["dbgorilla-*"].first => "dbgorilla"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.1.0/dbgorilla-linux-arm64"
-      sha256 "9eef12f4ff263483c2002652ae917a510a2092f1d50fc8e6e7dbb1024278a534"
+      sha256 "c7f83b01a9b751a8c11766d493478563d57a4748fa6892914a6d81dcb6d01a0b"
       define_method(:install) do
         bin.install Dir["dbgorilla-*"].first => "dbgorilla"
       end
