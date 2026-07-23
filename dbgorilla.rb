@@ -5,45 +5,69 @@
 class Dbgorilla < Formula
   desc "DBGorilla CLI -- sign in and connect Claude Code via MCP"
   homepage "https://dbgorilla.com"
-  version "0.2.0"
+  version "0.3.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.2.0/dbg-darwin-amd64"
-      sha256 "84b3406cb41828baf485463501882dd32309108f3c352ff6f1e10a3a0cc41ebe"
+      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.3.0/dbg-darwin-amd64"
+      sha256 "5d2e00db5c4ad1628476994a99936557bc52f2fd90839e9a89e7b6d535085e87"
 
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
         bin.install_symlink "dbgorilla" => "dbg"
+        # Cobra's built-in `dbgorilla completion <shell>` already emits a valid
+        # script for each shell; this Homebrew helper runs it and installs the
+        # output to the right completions directory (bash/zsh/fish) so tab
+        # completion works immediately after `brew install`, with no manual
+        # `dbgorilla completion zsh > ...` step required.
+        generate_completions_from_executable(bin/"dbgorilla", "completion")
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.2.0/dbg-darwin-arm64"
-      sha256 "42903d208617111a5fd1bb69e03055c8ddcf549178233fc941022f899150e85f"
+      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.3.0/dbg-darwin-arm64"
+      sha256 "acae7c93d8d31be81cc8a43de0c266f6e5eac69db637e0587e5dd24a7627a137"
 
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
         bin.install_symlink "dbgorilla" => "dbg"
+        # Cobra's built-in `dbgorilla completion <shell>` already emits a valid
+        # script for each shell; this Homebrew helper runs it and installs the
+        # output to the right completions directory (bash/zsh/fish) so tab
+        # completion works immediately after `brew install`, with no manual
+        # `dbgorilla completion zsh > ...` step required.
+        generate_completions_from_executable(bin/"dbgorilla", "completion")
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.2.0/dbg-linux-amd64"
-      sha256 "a694ffe0645872c14244309b0dc9455dd27fdbc9caf4d4ac0d0f571cf7ae64e7"
+      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.3.0/dbg-linux-amd64"
+      sha256 "7f344d260b364de96b9463a8ec88fb937a172338a5c7552fea3ee1ac078bd300"
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
         bin.install_symlink "dbgorilla" => "dbg"
+        # Cobra's built-in `dbgorilla completion <shell>` already emits a valid
+        # script for each shell; this Homebrew helper runs it and installs the
+        # output to the right completions directory (bash/zsh/fish) so tab
+        # completion works immediately after `brew install`, with no manual
+        # `dbgorilla completion zsh > ...` step required.
+        generate_completions_from_executable(bin/"dbgorilla", "completion")
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.2.0/dbg-linux-arm64"
-      sha256 "38fc5732ff9f152301a0db744fc95875b58fda24df8f6f976aeb6adf1f39cf49"
+      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.3.0/dbg-linux-arm64"
+      sha256 "8b3df4e72912f5ff61ab52501a541735b140356b98b3ec9eca358a6b344ee8b4"
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
         bin.install_symlink "dbgorilla" => "dbg"
+        # Cobra's built-in `dbgorilla completion <shell>` already emits a valid
+        # script for each shell; this Homebrew helper runs it and installs the
+        # output to the right completions directory (bash/zsh/fish) so tab
+        # completion works immediately after `brew install`, with no manual
+        # `dbgorilla completion zsh > ...` step required.
+        generate_completions_from_executable(bin/"dbgorilla", "completion")
       end
     end
   end
