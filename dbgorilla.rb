@@ -15,6 +15,7 @@ class Dbgorilla < Formula
 
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
+        (bin/"dbgorilla").chmod 0755 # raw release asset downloads without an exec bit
         bin.install_symlink "dbgorilla" => "dbg"
         # Cobra's built-in `dbgorilla completion <shell>` already emits a valid
         # script for each shell; this Homebrew helper runs it and installs the
@@ -30,6 +31,7 @@ class Dbgorilla < Formula
 
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
+        (bin/"dbgorilla").chmod 0755 # raw release asset downloads without an exec bit
         bin.install_symlink "dbgorilla" => "dbg"
         # Cobra's built-in `dbgorilla completion <shell>` already emits a valid
         # script for each shell; this Homebrew helper runs it and installs the
@@ -47,6 +49,7 @@ class Dbgorilla < Formula
       sha256 "ecded77665b13deac6492d601a240d14e95d52af3af546051d375b620b10484f"
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
+        (bin/"dbgorilla").chmod 0755 # raw release asset downloads without an exec bit
         bin.install_symlink "dbgorilla" => "dbg"
         # Cobra's built-in `dbgorilla completion <shell>` already emits a valid
         # script for each shell; this Homebrew helper runs it and installs the
@@ -61,6 +64,7 @@ class Dbgorilla < Formula
       sha256 "af7967bbd09239a6afc2b0e1317ffa5d033d3487dcd721cff30bfe39879da427"
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
+        (bin/"dbgorilla").chmod 0755 # raw release asset downloads without an exec bit
         bin.install_symlink "dbgorilla" => "dbg"
         # Cobra's built-in `dbgorilla completion <shell>` already emits a valid
         # script for each shell; this Homebrew helper runs it and installs the
