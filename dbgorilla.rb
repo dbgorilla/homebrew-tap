@@ -5,17 +5,19 @@
 class Dbgorilla < Formula
   desc "DBGorilla CLI -- sign in and connect Claude Code via MCP"
   homepage "https://dbgorilla.com"
-  version "0.4.0"
+  version "0.5.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.4.0/dbg-darwin-amd64"
-      sha256 "70bd2998daa1857a9b995eb4741954d2da07d5c3ccd1b0f2d483dc1ac088335c"
+      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.5.0/dbg-darwin-amd64"
+      sha256 "27d1f644311b62a7a617711a84753e7e0c4f21b6bb8e026cf4c44d6971987988"
 
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
-        (bin/"dbgorilla").chmod 0755 # raw release asset downloads without an exec bit
+        # The raw release asset downloads without an exec bit; set it before
+        # generate_completions_from_executable tries to run the binary.
+        (bin/"dbgorilla").chmod 0755
         bin.install_symlink "dbgorilla" => "dbg"
         # Cobra's built-in `dbgorilla completion <shell>` already emits a valid
         # script for each shell; this Homebrew helper runs it and installs the
@@ -26,12 +28,14 @@ class Dbgorilla < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.4.0/dbg-darwin-arm64"
-      sha256 "0c3e8ddebe3cc04347bfdf32eb7496a9be6e6ec6f930fba16cbfa07bea288e0b"
+      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.5.0/dbg-darwin-arm64"
+      sha256 "a8e2517440c7e2be24f1c502ebe588d0be16ea58b9da63f67ad27b029f2803dc"
 
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
-        (bin/"dbgorilla").chmod 0755 # raw release asset downloads without an exec bit
+        # The raw release asset downloads without an exec bit; set it before
+        # generate_completions_from_executable tries to run the binary.
+        (bin/"dbgorilla").chmod 0755
         bin.install_symlink "dbgorilla" => "dbg"
         # Cobra's built-in `dbgorilla completion <shell>` already emits a valid
         # script for each shell; this Homebrew helper runs it and installs the
@@ -45,11 +49,13 @@ class Dbgorilla < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.4.0/dbg-linux-amd64"
-      sha256 "ecded77665b13deac6492d601a240d14e95d52af3af546051d375b620b10484f"
+      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.5.0/dbg-linux-amd64"
+      sha256 "ce26aee649729e2d4e89ae372cd5a155c4eef41c79b7e2b14bcac35acb128eec"
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
-        (bin/"dbgorilla").chmod 0755 # raw release asset downloads without an exec bit
+        # The raw release asset downloads without an exec bit; set it before
+        # generate_completions_from_executable tries to run the binary.
+        (bin/"dbgorilla").chmod 0755
         bin.install_symlink "dbgorilla" => "dbg"
         # Cobra's built-in `dbgorilla completion <shell>` already emits a valid
         # script for each shell; this Homebrew helper runs it and installs the
@@ -60,11 +66,13 @@ class Dbgorilla < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.4.0/dbg-linux-arm64"
-      sha256 "af7967bbd09239a6afc2b0e1317ffa5d033d3487dcd721cff30bfe39879da427"
+      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.5.0/dbg-linux-arm64"
+      sha256 "b191d14210bba08d9128080b0e1264202fad9a469c8456901b8583ce0e19591b"
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
-        (bin/"dbgorilla").chmod 0755 # raw release asset downloads without an exec bit
+        # The raw release asset downloads without an exec bit; set it before
+        # generate_completions_from_executable tries to run the binary.
+        (bin/"dbgorilla").chmod 0755
         bin.install_symlink "dbgorilla" => "dbg"
         # Cobra's built-in `dbgorilla completion <shell>` already emits a valid
         # script for each shell; this Homebrew helper runs it and installs the
