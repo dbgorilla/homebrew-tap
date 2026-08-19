@@ -5,13 +5,13 @@
 class Dbgorilla < Formula
   desc "DBGorilla CLI -- sign in and connect Claude Code via MCP"
   homepage "https://dbgorilla.com"
-  version "0.5.1"
+  version "0.5.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.5.1/dbg-darwin-amd64"
-      sha256 "e04f4a592ab81684582e3ef0290de7c87f627a3fd6a2483e55f57b5c4c735bd0"
+      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.5.2/dbg-darwin-amd64"
+      sha256 "0de0cbddb70fc6ae3af33698979cdabc08166ea8670fb59e3f510d575cf332e6"
 
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
@@ -28,8 +28,8 @@ class Dbgorilla < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.5.1/dbg-darwin-arm64"
-      sha256 "8b78273f12b8b7795777b32f58b4588d6d3967e18f7b308add0ae820d1726578"
+      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.5.2/dbg-darwin-arm64"
+      sha256 "6ee8c3b51fe1d563654f88500c1c62f6320bffad8370475b544d1ced3323ec2a"
 
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
@@ -49,8 +49,8 @@ class Dbgorilla < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.5.1/dbg-linux-amd64"
-      sha256 "c5cf4a8bfce5e4977db9ce130fab0d2c13dbc6ff8770b68761a600e1f24a4ec4"
+      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.5.2/dbg-linux-amd64"
+      sha256 "298dd0c93c2d93ff5ecdcd3fbd48279f316c6baa424c1df71d9c6de1df15355b"
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
         # The raw release asset downloads without an exec bit; set it before
@@ -66,8 +66,8 @@ class Dbgorilla < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.5.1/dbg-linux-arm64"
-      sha256 "ddca688970340f8f5df05acff1b6672624db24701e8b7d62e8103b0c50c2b827"
+      url "https://github.com/dbgorilla/dbgorilla-cli/releases/download/v0.5.2/dbg-linux-arm64"
+      sha256 "8c458a13c829e8a7d9a9ac299549845a9191498e5b6387cde9df4a736a2c4e68"
       define_method(:install) do
         bin.install Dir["dbg-*"].first => "dbgorilla"
         # The raw release asset downloads without an exec bit; set it before
